@@ -27,9 +27,11 @@
       <h5 class="mt-4" style="color: #555;">Description</h5>
       <hr />
       <p style="font-family: 'Roboto', sans-serif; color: #333;">{{ object.description }}</p>
+      {% if user.is_authenticated %}
       <div class="d-flex justify-content-end mt-4">
         <a href="{% url "job_application" object.id %}" class="btn btn-primary" style="font-family: 'Roboto', sans-serif;">Apply Now</a>
       </div>
+      {% endif %}
     </div>
   </div>
 </div>
