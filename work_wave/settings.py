@@ -29,6 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = ['https://final-project-wl1x.onrender.com','https://*.127.0.0.1']
+
 
 env = environ.Env()
 environ.Env.read_env()
