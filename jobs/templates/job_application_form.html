@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<!-- Include Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    /* Custom Styles */
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f8f9fa; /* Light gray background */
+    }
+    .form-card {
+        background-color: #fff; /* White background */
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    }
+    .form-card-title {
+        font-size: 24px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333; /* Dark text color */
+    }
+    .form-control-label {
+        font-size: 16px;
+        color: #555; /* Medium dark text color */
+    }
+    .form-control {
+        border-color: #ccc; /* Light gray border */
+    }
+    .btn-submit {
+        background-color: #28a745; /* Green submit button */
+        border-color: #28a745;
+        color: #fff; /* White text color */
+    }
+    .btn-submit:hover {
+        background-color: #218838; /* Darker green on hover */
+        border-color: #218838;
+    }
+</style>
+
+<div class="container-fluid d-flex align-items-center justify-content-center" style="min-height: 100vh;">
+    <div class="col-md-6">
+        <div class="card form-card">
+            <div class="card-body p-5">
+                <h1 class="card-title form-card-title">Application Form</h1>
+                <form method="POST" class="w-100" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <button type="submit" class="btn btn-submit btn-block mt-4">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% load static %}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    .banner {
+        position: relative;
+        overflow: hidden;
+        height: 80vh;
+        background-image: url("{% static 'banner-image.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Make the background image fixed */
+    }
+
+    .banner-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .banner-content h1 {
+        color: #ffffff;
+        font-family: 'Roboto', sans-serif;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .banner-content p {
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .banner-content .btn {
+        color: #333333;
+        background-color: #ffffff;
+        border: 2px solid #ffffff;
+        transition: all 0.3s ease;
+    }
+
+    .banner-content .btn:hover {
+        background-color: #f0f0f0;
+        border-color: #f0f0f0;
+    }
+</style>
+
+<div class="container-fluid banner">
+    <div class="row align-items-center h-100">
+        <div class="col-md-12 text-center banner-content">
+            <h1 class="display-2 mb-4">Welcome to My Job Portal</h1>
+            <p class="lead mb-4">Find your dream job or top talent today</p>
+            <a href="#" class="btn btn-light btn-lg rounded-pill px-5 py-3">Get Started</a>
+        </div>
+    </div>
+</div>

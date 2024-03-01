@@ -1,0 +1,41 @@
+<!-- Include Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="w-75 m-auto">
+    <h1 class='text-center'>ALl Applications</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Applicant</th>
+                <th>Job Title</th>
+                <th class='text-center'>Caver Latter</th>
+                <th class='text-center'>Rrsumi</th>
+                <th class='text-center'>View Application</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for application in all_applications %}
+                <tr>
+                    <td>{{application.applicant.first_name}} {{application.applicant.last_name}}</td>
+                    <td>{{application.job_circular.job_title}}</td>
+                    <td>{{application.cover_letter}}</td>
+                    <td class='text-center'>
+                        <a href="{{ application.resumi }}" target="_blank"><i class="bi bi-file-earmark-pdf-fill text-danger"></i></a>
+                    </td>
+                    <td class='text-center'>
+                        <a href="{% url "view_application" application.applicant.id %}">
+                        <i class="bi bi-eye-fill"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

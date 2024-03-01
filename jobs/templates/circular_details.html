@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="card bg-light">
+    <div class="card-body">
+      <h3 class="mb-4" style="font-family: 'Roboto', sans-serif; color: #333;">{{ object.job_title }}</h3>
+      <h5 class="card-title" style="color: #555;">Summary</h5>
+      <hr />
+      <div class="row">
+        <div class="col-md-4">
+          <p><strong>Vacancy:</strong> {{ object.vacancy }}</p>
+          <p><strong>Salary:</strong> ${{ object.salary }} (monthly)</p>
+          <p><strong>Skills:</strong> {{ object.requirements }}</p>
+        </div>
+        <div class="col-md-4">
+          <p><strong>Location:</strong> {{ object.location }}</p>
+          <p><strong>Company:</strong> {{ object.company_name }}</p>
+        </div>
+        <div class="col-md-4">
+          <p><strong>Published:</strong> {{ object.post_date }}</p>
+          <p><strong>Last Date:</strong> {{ object.last_date }}</p>
+        </div>
+      </div>
+      <hr />
+      <h5 class="mt-4" style="color: #555;">Description</h5>
+      <hr />
+      <p style="font-family: 'Roboto', sans-serif; color: #333;">{{ object.description }}</p>
+      <div class="d-flex justify-content-end mt-4">
+        <a href="{% url "job_application" object.id %}" class="btn btn-primary" style="font-family: 'Roboto', sans-serif;">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
