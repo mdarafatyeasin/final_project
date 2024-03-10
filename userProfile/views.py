@@ -54,6 +54,8 @@ def Logout(request):
 def Profile (request):
     data = request.user
     userProfile = userProfileModel.objects.filter(user=request.user).first()
+    ProfilePicture = userProfile.profile_picture
+    print(f"picture is => {userProfile.profile_picture}")
     user_role = userProfile.role
     if userProfile.role == "employer":
         applications = jobCircularModel.objects.filter(publisher = request.user)
@@ -61,7 +63,7 @@ def Profile (request):
         applications = jobApplicationModel.objects.filter(applicant = request.user)
     else:
         print("User Not Found")
-    return render(request, 'profile.html', {'data':data, 'applications':applications, 'user_role': user_role})
+    return render(request, 'profile.html', {'data':data, 'applications':applications, 'user_role': user_role, 'ProfilePicture':ProfilePicture})
 
 
 # edit profile

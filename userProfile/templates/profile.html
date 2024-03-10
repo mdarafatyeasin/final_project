@@ -10,6 +10,12 @@
     .link-style:hover {
         text-decoration: underline; /* Underline on hover */
     }
+    .profile-picture{
+        border-radius: 50%;
+        width: 200px;
+        height: 200px; 
+        object-fit: cover; 
+    }
 </style>
 
 
@@ -22,7 +28,12 @@
     <div class="row justify-content-center mt-5">
         <div class="col-md-4">
             <div class="card border-0"> <!-- Added border-0 class -->
+                {% if ProfilePicture %}
+                <img src="{{ ProfilePicture.url }}" class="card-img-top mx-auto d-block profile-picture" alt="profile picture">
+                {% else %}
                 <img src="{% static "user_img.png" %}" class="card-img-top mx-auto d-block" style="width: 200px;" alt="profile picture">
+                {% endif %}
+                
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ data }}</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
